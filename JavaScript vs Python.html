@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript vs Python Comparison</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/vs.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #4ec9b0;
+        }
+        .comparison {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .code-block {
+            width: 48%;
+            background: #2d2d2d;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        pre {
+            background: #2d2d2d;
+            padding: 10px;
+            border: 1px solid #393939;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .hljs {
+            background: #2d2d2d;
+            color: #d4d4d4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .hljs-keyword {
+            color: #569cd6;
+        }
+        .hljs-literal {
+            color: #569cd6;
+        }
+        .hljs-symbol {
+            color: #569cd6;
+        }
+        .hljs-name {
+            color: #569cd6;
+        }
+        .hljs-link {
+            color: #569cd6;
+        }
+        .hljs-built_in {
+            color: #4ec9b0;
+        }
+        .hljs-type {
+            color: #4ec9b0;
+        }
+        .hljs-number {
+            color: #b5cea8;
+        }
+        .hljs-class .hljs-title {
+            color: #4ec9b0;
+        }
+        .hljs-string {
+            color: #ce9178;
+        }
+        .hljs-meta-string {
+            color: #ce9178;
+        }
+        .hljs-regexp {
+            color: #d16969;
+        }
+        .hljs-template-tag {
+            color: #d16969;
+        }
+        .hljs-subst {
+            color: #d16969;
+        }
+        .hljs-function {
+            color: #dcdcaa;
+        }
+        .hljs-title {
+            color: #dcdcaa;
+        }
+        .hljs-params {
+            color: #dcdcaa;
+        }
+        .hljs-comment {
+            color: #6a9955;
+        }
+        .hljs-quote {
+            color: #6a9955;
+        }
+        .hljs-meta {
+            color: #6a9955;
+        }
+        .hljs-tag {
+            color: #569cd6;
+        }
+        .hljs-name {
+            color: #569cd6;
+        }
+        .hljs-attr {
+            color: #d7ba7d;
+        }
+        .hljs-attribute {
+            color: #9cdcfe;
+        }
+        .hljs-selector-tag {
+            color: #9cdcfe;
+        }
+        .hljs-section {
+            color: #4ec9b0;
+        }
+        .hljs-bullet {
+            color: #b5cea8;
+        }
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-literal,
+        .hljs-template-tag,
+        .hljs-template-variable,
+        .hljs-symbol,
+        .hljs-meta {
+            font-weight: bold;
+        }
+        .summary {
+            text-align: center;
+            font-style: italic;
+            color: #808080;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript vs Python</h1>
+
+        <h2>Variables</h2>
+        <div class="comparison">
+            <div class="code-block">
+                <h3>JavaScript</h3>
+                <pre><code class="language-javascript">let a = 5;
+const b = "Hello";
+var c = true;
+</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>Python</h3>
+                <pre><code class="language-python">a = 5
+b = "Hello"
+c = True
+</code></pre>
+            </div>
+        </div>
+
+        <h2>If-Else Statements</h2>
+        <div class="comparison">
+            <div class="code-block">
+                <h3>JavaScript</h3>
+                <pre><code class="language-javascript">if (a > 3) {
+    console.log("a is greater than 3");
+} else {
+    console.log("a is not greater than 3");
+}
+</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>Python</h3>
+                <pre><code class="language-python">if a > 3:
+    print("a is greater than 3")
+else:
+    print("a is not greater than 3")
+</code></pre>
+            </div>
+        </div>
+
+        <h2>For Loops</h2>
+        <div class="comparison">
+            <div class="code-block">
+                <h3>JavaScript</h3>
+                <pre><code class="language-javascript">for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>Python</h3>
+                <pre><code class="language-python">for i in range(5):
+    print(i)
+</code></pre>
+            </div>
+        </div>
+
+        <h2>While Loops</h2>
+        <div class="comparison">
+            <div class="code-block">
+                <h3>JavaScript</h3>
+                <pre><code class="language-javascript">let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>Python</h3>
+                <pre><code class="language-python">i = 0
+while i < 5:
+    print(i)
+    i += 1
+</code></pre>
+            </div>
+        </div>
+
+        <h2>Functions</h2>
+        <div class="comparison">
+            <div class="code-block">
+                <h3>JavaScript</h3>
+                <pre><code class="language-javascript">function greet(name) {
+    return "Hello " + name;
+}
+console.log(greet("World"));
+</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>Python</h3>
+                <pre><code class="language-python">def greet(name):
+    return "Hello " + name
+
+print(greet("World"))
+</code></pre>
+            </div>
+        </div>
+
+        <h2>Arrays</h2>
+        <div class="comparison">
+            <div class="code-block">
+                <h3>JavaScript</h3>
+                <pre><code class="language-javascript">let arr = [1, 2, 3, 4, 5];
+console.log(arr[0]);
+</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>Python</h3>
+                <pre><code class="language-python">arr = [1, 2, 3, 4, 5]
+print(arr[0])
+</code></pre>
+            </div>
+        </div>
+
+        <h2>Objects</h2>
+        <div class="comparison">
+            <div class="code-block">
+                <h3>JavaScript</h3>
+                <pre><code class="language-javascript">let person = {
+    name: "John",
+    age: 30
+};
+console.log(person.name);
+</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>Python</h3>
+                <pre><code class="language-python">person = {
+    "name": "John",
+    "age": 30
+}
+print(person["name"])
+</code></pre>
+            </div>
+        </div>
+
+        <h2>String Operations</h2>
+        <div class="comparison">
+            <div class="code-block">
+                <h3>JavaScript</h3>
+                <pre><code class="language-javascript">let str = "Hello World";
+console.log(str.length);
+console.log(str.toUpperCase());
+console.log(str.substring(1, 4));
+</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>Python</h3>
+                <pre><code class="language-python">str = "Hello World"
+print(len(str))
+print(str.upper())
+print(str[1:4])
+</code></pre>
+            </div>
+        </div>
+
+        <h2>File Management</h2>
+        <div class="comparison">
+            <div class="code-block">
+                <h3>JavaScript (Node.js)</h3>
+                <pre><code class="language-javascript">const fs = require('fs');
+
+fs.readFile('example.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+});
+
+fs.writeFile('example.txt', 'Hello World', (err) => {
+    if (err) throw err;
+    console.log('File written!');
+});
+</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>Python</h3>
+                <pre><code class="language-python">with open('example.txt', 'r') as file:
+    data = file.read()
+    print(data)
+
+with open('example.txt', 'w') as file:
+    file.write('Hello World')
+    print('File written!')
+</code></pre>
+            </div>
+        </div>
+
+        <div class="summary" style="color: #fff;">
+            Here's the translation of your statement into English:
+
+            "JavaScript and Python are two popular programming languages with different capabilities and uses. As programming languages, JavaScript tends to be more flexible and suitable for developing dynamic user interfaces, while Python emphasizes code readability and rapid development."        </div>
+    </div>
+    <br/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
