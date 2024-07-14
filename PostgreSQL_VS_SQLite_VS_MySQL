@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Queries - Categorized VS Code Style</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            direction: rtl;
+            text-align: left;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #4ec9b0;
+        }
+
+        .categories-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .category {
+            flex: 0 1 48%;
+        }
+
+        .category-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #4ec9b0;
+        }
+
+        .query-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #2d2d2d;
+            border-radius: 5px;
+            overflow-x: auto;
+            /* Enable horizontal scrolling */
+        }
+
+        .query-title {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #9cdcfe;
+        }
+
+        code {
+            display: block;
+            white-space: pre-wrap;
+            background-color: #2d2d2d;
+            border: 1px solid #303030;
+            padding: 10px;
+            font-size: 14px;
+            color: #d4d4d4;
+        }
+
+        .language-difference {
+            margin-top: 40px;
+        }
+
+        .language-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #f0a24e;
+        }
+
+        .language-description {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h2 {
+            color: #4ec9b0;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>PostgreSQL VS SQLite VS MySQL</h2>
+    </div>
+
+    <div class="categories-container">
+        <div class="category">
+            <div class="category-title">Data Manipulation</div>
+            <div class="query-container">
+                <div class="query-title">Insert Record</div>
+                <code>
+                    INSERT INTO users (id, name, email) VALUES (1, 'John Doe', 'john@example.com');
+                </code>
+            </div>
+            <div class="query-container">
+                <div class="query-title">Update Record</div>
+                <code>
+                    UPDATE users SET email='john.doe@example.com' WHERE id=1;
+                </code>
+            </div>
+
+            <div class="query-container">
+                <div class="query-title">Delete Record</div>
+                <code>
+                    DELETE FROM users WHERE id=1;
+                </code>
+            </div>
+
+            <div class="query-container">
+                <div class="query-title">Search Record by ID</div>
+                <code>
+                    SELECT * FROM users WHERE id=1;
+                </code>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-title">Data Retrieval</div>
+            <div class="query-container">
+                <div class="query-title">Join Tables</div>
+                <code>
+                    SELECT users.name, orders.order_id, orders.amount
+                    FROM users
+                    INNER JOIN orders ON users.id = orders.user_id;
+                </code>
+            </div>
+
+            <div class="query-container">
+                <div class="query-title">Count Records</div>
+                <code>
+                    SELECT COUNT(*) FROM users;
+                </code>
+            </div>
+
+            <div class="query-container">
+                <div class="query-title">Average Value</div>
+                <code>
+                    SELECT AVG(amount) FROM orders;
+                </code>
+            </div>
+
+            <div class="query-container">
+                <div class="query-title">Maximum Value</div>
+                <code>
+                    SELECT MAX(amount) FROM orders;
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <div class="categories-container">
+        <div class="category">
+            <div class="category-title">Functions</div>
+            <div class="query-container">
+                <div class="query-title">Function in MySQL</div>
+                <code>
+                    -- Create function to get username by ID
+
+                    CREATE FUNCTION get_username_by_id(user_id INT)
+                    RETURNS VARCHAR(255)
+                    BEGIN
+                        DECLARE username VARCHAR(255);
+                        SELECT name INTO username FROM users WHERE id = user_id;
+                        RETURN username;
+
+                    DELIMITER ;
+                </code>
+            </div>
+
+            <div class="query-container">
+                <div class="query-title">Function in PostgreSQL</div>
+                <code>
+                    CREATE OR REPLACE FUNCTION calculate_tax(amount numeric)
+                    RETURNS numeric AS $$
+                    DECLARE
+                        tax numeric;
+                    BEGIN
+                        tax := amount * 0.2; -- 20% tax rate
+                        RETURN tax;
+                    END;
+                    $$ LANGUAGE plpgsql;
+                </code>
+            </div>
+
+            <div class="query-container">
+                <div class="query-title">Function in SQLite</div>
+                <code>
+                    CREATE FUNCTION max_value()
+                    RETURNS INTEGER
+                    AS $$
+                        SELECT MAX(value) FROM data;
+                    $$;
+                </code>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-title">Triggers</div>
+            <div class="query-container">
+                <div class="query-title">Trigger in MySQL</div>
+                <code>
+                    -- Create trigger to update last_modified field on update
+                    CREATE TRIGGER update_last_modified_trigger
+                    BEFORE UPDATE ON users
+                    FOR EACH ROW
+                    SET NEW.last_modified = CURRENT_TIMESTAMP;
+                </code>
+            </div>
+
+            <div class="query-container">
+                <div class="query-title">Trigger in PostgreSQL</div>
+                <code>
+                    CREATE OR REPLACE FUNCTION update_last_modified()
+                    RETURNS TRIGGER AS $$
+                    BEGIN
+                        NEW.last_modified = CURRENT_TIMESTAMP;
+                        RETURN NEW;
+                    END;
+                    $$ LANGUAGE plpgsql;
+
+                    CREATE TRIGGER update_last_modified_trigger
+                    BEFORE UPDATE ON users
+                    FOR EACH ROW
+                    EXECUTE FUNCTION update_last_modified();
+                </code>
+            </div>
+
+            <div class="query-container">
+                <div class="query-title">Trigger in SQLite</div>
+                <code>
+                    CREATE TRIGGER update_last_modified
+                    AFTER UPDATE ON users
+                    BEGIN
+                        UPDATE users SET last_modified = CURRENT_TIMESTAMP WHERE id = NEW.id;
+                    END;
+                </code>
+            </div>
+        </div>
+    </div>
+
+    <div class="language-difference">
+        <h3>Language Differences</h3>
+
+        <div class="category">
+            <div class="language-title">MySQL</div>
+            <div class="language-description">
+                <p>MySQL uses <code>DELIMITER</code> to define the start and end of stored procedures and functions.</p>
+                <p>MySQL triggers can be defined to execute before or after an INSERT, UPDATE, or DELETE operation.</p>
+                <p>MySQL supports non-transactional storage engines like MyISAM, in addition to transactional engines.
+                </p>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="language-title">PostgreSQL</div>
+            <div class="language-description">
+                <p>PostgreSQL uses <code>LANGUAGE plpgsql</code> for stored procedures and functions written in
+                    PL/pgSQL.</p>
+                <p>PostgreSQL triggers can be defined to execute before or after an INSERT, UPDATE, or DELETE operation.
+                </p>
+                <p>PostgreSQL supports advanced data types like JSON, arrays, and full-text search capabilities.</p>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="language-title">SQLite</div>
+            <div class="language-description">
+                <p>SQLite does not support stored procedures like MySQL or PostgreSQL, but it does support user-defined
+                    functions (UDFs).</p>
+                <p>SQLite triggers can be defined to execute before or after an INSERT, UPDATE, or DELETE operation.</p>
+                <p>SQLite is a self-contained, serverless, zero-configuration SQL database engine.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
