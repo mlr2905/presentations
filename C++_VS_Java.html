@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Comparison</title>
+    <style>
+        body {
+            font-family: 'Consolas', 'Courier New', monospace;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .code-comparison {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #252526;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .code-section {
+            width: 48%;
+        }
+
+        .code-header {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #569cd6;
+            text-align: center;
+        }
+
+        pre {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 15px;
+            overflow: auto;
+        }
+
+        code {
+            color: #d4d4d4;
+            font-size: 0.9em;
+        }
+
+        .cpp code {
+            color: #4ec9b0;
+        }
+
+        .java code {
+            color: #dcdcaa;
+        }
+
+        .cpp .keyword, .java .keyword {
+            color: #569cd6;
+        }
+
+        .cpp .comment, .java .comment {
+            color: #6a9955;
+            font-style: italic;
+        }
+
+        .cpp .string, .java .string {
+            color: #ce9178;
+        }
+
+        .cpp .number, .java .number {
+            color: #b5cea8;
+        }
+        body {
+            background-color: #000000; /* Black background */
+            color: #86c8e4;
+            font-family: Consolas, 'Courier New', monospace;
+        }
+        table {
+            width: 68%;
+            margin: 50px auto;
+            border-collapse: collapse;
+            border: 1px solid #3c3c3c;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #3c3c3c;
+        }
+        th {
+            background-color: #1a1a1a;
+            color: #00FF00; /* Green text */
+        }
+        td.cpp {
+            background-color: #1a1a1a; /* C++ background color */
+            color: #0047ab; /* White text */
+        }
+        td.java {
+            background-color: #1a1a1a; /* Java background color */
+            color: #b07219; /* White text */
+        }
+        tr:nth-child(even) {
+            background-color: #1e1e1e;
+        }
+        tr:nth-child(odd) {
+            background-color: #2d2d2d;
+        }
+        #wrapper {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            color: #4ec9b0;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="wrapper">
+        <h2>C++ VS Java</h2>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>C++</th>
+                <th>Java</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Memory Management</td>
+                <td class="cpp">Direct, allows direct memory manipulation</td>
+                <td class="java">Automatic, managed by a virtual machine (JVM)</td>
+            </tr>
+            <tr>
+                <td>Platform</td>
+                <td class="cpp">Requires recompilation for each platform</td>
+                <td class="java">Write once, run anywhere with JVM support</td>
+            </tr>
+            <tr>
+                <td>Code Standardization</td>
+                <td class="cpp">No clear standardization, code needs adaptation for each platform</td>
+                <td class="java">Highly standardized, runs on any JVM-supported machine</td>
+            </tr>
+            <tr>
+                <td>Language Type System</td>
+                <td class="cpp">Pointers, complex data structures, local programming model</td>
+                <td class="java">Stable type system, based on virtual coding and execution</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="container">
+        <div class="code-comparison">
+            <div class="code-section cpp">
+                <div class="code-header">C++: Hello, World!</div>
+                <pre><code class="cpp">
+<span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> std;
+
+<span class="keyword">int</span> main() {
+    cout <span class="keyword">&lt;&lt;</span> <span class="string">"Hello, World!"</span> <span class="keyword">&lt;&lt;</span> endl;
+    <span class="keyword">return</span> 0;
+}
+                </code></pre>
+            </div>
+            <div class="code-section java">
+                <div class="code-header">Java: Hello, World!</div>
+                <pre><code class="java">
+<span class="keyword">public class</span> HelloWorld {
+    <span class="keyword">public static void</span> main(String[] args) {
+        System.out.println(<span class="string">"Hello, World!"</span>);
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="code-comparison">
+            <div class="code-section cpp">
+                <div class="code-header">C++: Variables</div>
+                <pre><code class="cpp">
+<span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> std;
+
+<span class="keyword">int</span> main() {
+    <span class="keyword">int</span> num = <span class="number">5</span>;
+    <span class="keyword">double</span> decimal = <span class="number">5.5</span>;
+    <span class="keyword">char</span> letter = <span class="string">'A'</span>;
+
+    cout <span class="keyword">&lt;&lt;</span> <span class="string">"Integer: "</span> <span class="keyword">&lt;&lt;</span> num <span class="keyword">&lt;&lt;</span> endl;
+    cout <span class="keyword">&lt;&lt;</span> <span class="string">"Double: "</span> <span class="keyword">&lt;&lt;</span> decimal <span class="keyword">&lt;&lt;</span> endl;
+    cout <span class="keyword">&lt;&lt;</span> <span class="string">"Character: "</span> <span class="keyword">&lt;&lt;</span> letter <span class="keyword">&lt;&lt;</span> endl;
+
+    <span class="keyword">return</span> 0;
+}
+                </code></pre>
+            </div>
+            <div class="code-section java">
+                <div class="code-header">Java: Variables</div>
+                <pre><code class="java">
+<span class="keyword">public class</span> Variables {
+    <span class="keyword">public static void</span> main(String[] args) {
+        <span class="keyword">int</span> num = <span class="number">5</span>;
+        <span class="keyword">double</span> decimal = <span class="number">5.5</span>;
+        <span class="keyword">char</span> letter = <span class="string">'A'</span>;
+
+        System.out.println(<span class="string">"Integer: "</span> + num);
+        System.out.println(<span class="string">"Double: "</span> + decimal);
+        System.out.println(<span class="string">"Character: "</span> + letter);
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="code-comparison">
+            <div class="code-section cpp">
+                <div class="code-header">C++: Functions</div>
+                <pre><code class="cpp">
+<span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> std;
+
+<span class="keyword">void</span> printMessage() {
+    cout <span class="keyword">&lt;&lt;</span> <span class="string">"Hello from a function!"</span> <span class="keyword">&lt;&lt;</span> endl;
+}
+
+<span class="keyword">int</span> main() {
+    printMessage();
+    <span class="keyword">return</span> 0;
+}
+                </code></pre>
+            </div>
+            <div class="code-section java">
+                <div class="code-header">Java: Functions</div>
+                <pre><code class="java">
+<span class="keyword">public class</span> Functions {
+    <span class="keyword">public static void</span> printMessage() {
+        System.out.println(<span class="string">"Hello from a method!"</span>);
+    }
+
+    <span class="keyword">public static void</span> main(String[] args) {
+        printMessage();
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="code-comparison">
+            <div class="code-section cpp">
+                <div class="code-header">C++: Loops</div>
+                <pre><code class="cpp">
+<span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> std;
+
+<span class="keyword">int</span> main() {
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
+        cout <span class="keyword">&lt;&lt;</span> <span class="string">"i = "</span> <span class="keyword">&lt;&lt;</span> i <span class="keyword">&lt;&lt;</span> endl;
+    }
+
+    <span class="keyword">int</span> j = <span class="number">0</span>;
+    <span class="keyword">while</span>(j < <span class="number">5</span>) {
+        cout <span class="keyword">&lt;&lt;</span> <span class="string">"j = "</span> <span class="keyword">&lt;&lt;</span> j <span class="keyword">&lt;&lt;</span> endl;
+        j++;
+    }
+
+    <span class="keyword">return</span> 0;
+}
+                </code></pre>
+            </div>
+            <div class="code-section java">
+                <div class="code-header">Java: Loops</div>
+                <pre><code class="java">
+<span class="keyword">public class</span> Loops {
+    <span class="keyword">public static void</span> main(String[] args) {
+        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
+            System.out.println(<span class="string">"i = "</span> + i);
+        }
+
+        <span class="keyword">int</span> j = <span class="number">0</span>;
+        <span class="keyword">while</span>(j < <span class="number">5</span>) {
+            System.out.println(<span class="string">"j = "</span> + j);
+            j++;
+        }
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="code-comparison">
+            <div class="code-section cpp">
+                <div class="code-header">C++: Arrays</div>
+                <pre><code class="cpp">
+<span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> std;
+
+<span class="keyword">int</span> main() {
+    <span class="keyword">int</span> arr[<span class="number">5</span>] = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>};
+
+    cout <span class="keyword">&lt;&lt;</span> <span class="string">"Array elements: "</span>;
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
+        cout <span class="keyword">&lt;&lt;</span> arr[i] <span class="keyword">&lt;&lt;</span> <span class="string">" "</span>;
+    }
+    cout <span class="keyword">&lt;&lt;</span> endl;
+
+    <span class="keyword">return</span> 0;
+}
+                </code></pre>
+            </div>
+            <div class="code-section java">
+                <div class="code-header">Java: Arrays</div>
+                <pre><code class="java">
+<span class="keyword">public class</span> ArraysExample {
+    <span class="keyword">public static void</span> main(String[] args) {
+        <span class="keyword">int</span>[] arr = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>};
+
+        System.out.print(<span class="string">"Array elements: "</span>);
+        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i < arr.length; i++) {
+            System.out.print(arr[i] + <span class="string">" "</span>);
+        }
+        System.out.println();
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="code-comparison">
+            <div class="code-section cpp">
+                <div class="code-header">C++: Objects</div>
+                <pre><code class="cpp">
+<span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> std;
+
+<span class="keyword">class</span> Car {
+    <span class="keyword">public</span>:
+        <span class="keyword">string</span> brand;
+        <span class="keyword">int</span> year;
+    
+        Car(<span class="keyword">string</span> b, <span class="keyword">int</span> y) {
+            brand = b;
+            year = y;
+        }
+
+        <span class="keyword">void</span> displayInfo() {
+            cout << <span class="string">"Brand: "</span> << brand << <span class="string">", Year: "</span> << year << endl;
+        }
+};
+
+<span class="keyword">int</span> main() {
+    Car myCar(<span class="string">"Toyota"</span>, <span class="number">2022</span>);
+    myCar.displayInfo();
+
+    <span class="keyword">return</span> 0;
+}
+                </code></pre>
+            </div>
+            <div class="code-section java">
+                <div class="code-header">Java: Objects</div>
+                <pre><code class="java">
+<span class="keyword">public class</span> Car {
+    <span class="keyword">private</span> <span class="keyword">String</span> brand;
+    <span class="keyword">private</span> <span class="keyword">int</span> year;
+
+    <span class="keyword">public</span> Car(<span class="keyword">String</span> b, <span class="keyword">int</span> y) {
+        brand = b;
+        year = y;
+    }
+
+    <span class="keyword">public void</span> displayInfo() {
+        System.out.println(<span class="string">"Brand: "</span> + brand + <span class="string">", Year: "</span> + year);
+    }
+
+    <span class="keyword">public static void</span> main(<span class="keyword">String</span>[] args) {
+        Car myCar = <span class="keyword">new</span> Car(<span class="string">"Toyota"</span>, <span class="number">2022</span>);
+        myCar.displayInfo();
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
