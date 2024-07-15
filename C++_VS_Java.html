@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,55 +65,75 @@
             color: #dcdcaa;
         }
 
-        .cpp .keyword, .java .keyword {
+        .cpp .keyword,
+        .java .keyword {
             color: #569cd6;
         }
 
-        .cpp .comment, .java .comment {
+        .cpp .comment,
+        .java .comment {
             color: #6a9955;
             font-style: italic;
         }
 
-        .cpp .string, .java .string {
+        .cpp .string,
+        .java .string {
             color: #ce9178;
         }
 
-        .cpp .number, .java .number {
+        .cpp .number,
+        .java .number {
             color: #b5cea8;
         }
+
         body {
-            background-color: #000000; /* Black background */
+            background-color: #000000;
+            /* Black background */
             color: #86c8e4;
             font-family: Consolas, 'Courier New', monospace;
         }
+
         table {
             width: 68%;
             margin: 50px auto;
             border-collapse: collapse;
             border: 1px solid #3c3c3c;
         }
-        th, td {
+
+        th,
+        td {
             padding: 12px 15px;
             border: 1px solid #3c3c3c;
         }
+
         th {
             background-color: #1a1a1a;
-            color: #00FF00; /* Green text */
+            color: #00FF00;
+            /* Green text */
         }
+
         td.cpp {
-            background-color: #1a1a1a; /* C++ background color */
-            color: #0047ab; /* White text */
+            background-color: #1a1a1a;
+            /* C++ background color */
+            color: #0047ab;
+            /* White text */
         }
+
         td.java {
-            background-color: #1a1a1a; /* Java background color */
-            color: #b07219; /* White text */
+            background-color: #1a1a1a;
+            /* Java background color */
+            color: #b07219;
+            /* White text */
         }
+
         tr:nth-child(even) {
             background-color: #1e1e1e;
         }
+
         tr:nth-child(odd) {
             background-color: #2d2d2d;
         }
+
         #wrapper {
             max-width: 800px;
             margin: 40px auto;
@@ -121,6 +142,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
+
         h2 {
             color: #4ec9b0;
             font-size: 2.5rem;
@@ -129,6 +151,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container" id="wrapper">
         <h2>C++ VS Java</h2>
@@ -164,6 +187,7 @@
             </tr>
         </tbody>
     </table>
+
     <div class="container">
         <div class="code-comparison">
             <div class="code-section cpp">
@@ -230,6 +254,44 @@
 
         <div class="code-comparison">
             <div class="code-section cpp">
+                <div class="code-header">C++: Loops</div>
+                <pre><code class="cpp">
+<span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> std;
+
+<span class="keyword">int</span> main() {
+    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
+        cout <span class="keyword">&lt;&lt;</span> <span class="string">"i = "</span> <span class="keyword">&lt;&lt;</span> i <span class="keyword">&lt;&lt;</span> endl;
+    }
+    <span class="keyword">int</span> j = <span class="number">0</span>;
+    <span class="keyword">while</span>(j < <span class="number">5</span>) {
+        cout <span class="keyword">&lt;&lt;</span> <span class="string">"j = "</span> <span class="keyword">&lt;&lt;</span> j <span class="keyword">&lt;&lt;</span> endl;
+        j++;
+    }
+    <span class="keyword">return</span> 0;
+}
+                </code></pre>
+            </div>
+            <div class="code-section java">
+                <div class="code-header">Java: Loops</div>
+                <pre><code class="java">
+<span class="keyword">public class</span> Loops {
+    <span class="keyword">public static void</span> main(String[] args) {
+        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
+            System.out.println(<span class="string">"i = "</span> + i);
+        }
+        <span class="keyword">int</span> j = <span class="number">0</span>;
+        <span class="keyword">while</span>(j < <span class="number">5</span>) {
+            System.out.println(<span class="string">"j = "</span> + j);
+            j++;
+        }
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+        <div class="code-comparison">
+            <div class="code-section cpp">
                 <div class="code-header">C++: Functions</div>
                 <pre><code class="cpp">
 <span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span>
@@ -238,7 +300,6 @@
 <span class="keyword">void</span> printMessage() {
     cout <span class="keyword">&lt;&lt;</span> <span class="string">"Hello from a function!"</span> <span class="keyword">&lt;&lt;</span> endl;
 }
-
 <span class="keyword">int</span> main() {
     printMessage();
     <span class="keyword">return</span> 0;
@@ -260,50 +321,6 @@
                 </code></pre>
             </div>
         </div>
-
-        <div class="code-comparison">
-            <div class="code-section cpp">
-                <div class="code-header">C++: Loops</div>
-                <pre><code class="cpp">
-<span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> std;
-
-<span class="keyword">int</span> main() {
-    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
-        cout <span class="keyword">&lt;&lt;</span> <span class="string">"i = "</span> <span class="keyword">&lt;&lt;</span> i <span class="keyword">&lt;&lt;</span> endl;
-    }
-
-    <span class="keyword">int</span> j = <span class="number">0</span>;
-    <span class="keyword">while</span>(j < <span class="number">5</span>) {
-        cout <span class="keyword">&lt;&lt;</span> <span class="string">"j = "</span> <span class="keyword">&lt;&lt;</span> j <span class="keyword">&lt;&lt;</span> endl;
-        j++;
-    }
-
-    <span class="keyword">return</span> 0;
-}
-                </code></pre>
-            </div>
-            <div class="code-section java">
-                <div class="code-header">Java: Loops</div>
-                <pre><code class="java">
-<span class="keyword">public class</span> Loops {
-    <span class="keyword">public static void</span> main(String[] args) {
-        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i < <span class="number">5</span>; i++) {
-            System.out.println(<span class="string">"i = "</span> + i);
-        }
-
-        <span class="keyword">int</span> j = <span class="number">0</span>;
-        <span class="keyword">while</span>(j < <span class="number">5</span>) {
-            System.out.println(<span class="string">"j = "</span> + j);
-            j++;
-        }
-    }
-}
-                </code></pre>
-            </div>
-        </div>
-    </div>
-    <div class="container">
         <div class="code-comparison">
             <div class="code-section cpp">
                 <div class="code-header">C++: Arrays</div>
@@ -350,55 +367,52 @@
 <span class="keyword">using</span> <span class="keyword">namespace</span> std;
 
 <span class="keyword">class</span> Car {
-    <span class="keyword">public</span>:
-        <span class="keyword">string</span> brand;
-        <span class="keyword">int</span> year;
-    
-        Car(<span class="keyword">string</span> b, <span class="keyword">int</span> y) {
-            brand = b;
-            year = y;
-        }
+<span class="keyword">public</span>:
+    <span class="keyword">string</span> brand;
+    <span class="keyword">int</span> year;
 
-        <span class="keyword">void</span> displayInfo() {
-            cout << <span class="string">"Brand: "</span> << brand << <span class="string">", Year: "</span> << year << endl;
-        }
+    Car(<span class="keyword">string</span> b, <span class="keyword">int</span> y) {
+        brand = b;
+        year = y;
+    }
+
+    <span class="keyword">void</span> displayInfo() {
+        cout << <span class="string">"Brand: "</span> << brand << <span class="string">", Year: "</span> << year << endl;
+    }
 };
 
 <span class="keyword">int</span> main() {
-    Car myCar(<span class="string">"Toyota"</span>, <span class="number">2022</span>);
-    myCar.displayInfo();
+Car myCar(<span class="string">"Toyota"</span>, <span class="number">2022</span>);
+myCar.displayInfo();
 
-    <span class="keyword">return</span> 0;
+<span class="keyword">return</span> 0;
 }
-                </code></pre>
+            </code></pre>
             </div>
             <div class="code-section java">
                 <div class="code-header">Java: Objects</div>
                 <pre><code class="java">
 <span class="keyword">public class</span> Car {
-    <span class="keyword">private</span> <span class="keyword">String</span> brand;
-    <span class="keyword">private</span> <span class="keyword">int</span> year;
+<span class="keyword">private</span> <span class="keyword">String</span> brand;
+<span class="keyword">private</span> <span class="keyword">int</span> year;
 
-    <span class="keyword">public</span> Car(<span class="keyword">String</span> b, <span class="keyword">int</span> y) {
-        brand = b;
-        year = y;
-    }
-
-    <span class="keyword">public void</span> displayInfo() {
-        System.out.println(<span class="string">"Brand: "</span> + brand + <span class="string">", Year: "</span> + year);
-    }
-
-    <span class="keyword">public static void</span> main(<span class="keyword">String</span>[] args) {
-        Car myCar = <span class="keyword">new</span> Car(<span class="string">"Toyota"</span>, <span class="number">2022</span>);
-        myCar.displayInfo();
-    }
+<span class="keyword">public</span> Car(<span class="keyword">String</span> b, <span class="keyword">int</span> y) {
+    brand = b;
+    year = y;
 }
-                </code></pre>
+
+<span class="keyword">public void</span> displayInfo() {
+    System.out.println(<span class="string">"Brand: "</span> + brand + <span class="string">", Year: "</span> + year);
+}
+
+<span class="keyword">public static void</span> main(<span class="keyword">String</span>[] args) {
+    Car myCar = <span class="keyword">new</span> Car(<span class="string">"Toyota"</span>, <span class="number">2022</span>);
+    myCar.displayInfo();
+}
+}
+            </code></pre>
             </div>
         </div>
     </div>
 </body>
 </html>
-
-
-
