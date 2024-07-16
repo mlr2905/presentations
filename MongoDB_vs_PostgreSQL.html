@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Comparison: MongoDB vs PostgreSQL</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #453838;
+            color: #d4d4d4;
+            padding: 20px;
+            margin: 0;
+            direction: ltr; /* כיוון שמאל לימין */
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .header h1 {
+            color: #4ec9b0;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .section {
+            flex: 1 1 calc(50% - 20px);
+            background-color: #252526;
+            border: 1px solid #373737;
+            border-radius: 5px;
+            padding: 20px;
+            min-width: 300px;
+            box-sizing: border-box;
+        }
+
+        .section h2 {
+            color: #4ec9b0;
+            border-bottom: 1px solid #373737;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .code-block {
+            margin-top: 10px;
+            background-color: #333333;
+            border: 1px solid #454545;
+            padding: 10px;
+            overflow: auto;
+            max-height: 300px;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            margin: 0;
+            font-size: 14px;
+            color: #d4d4d4;
+        }
+
+        .code-comment {
+            color: #6a9955;
+        }
+
+        .code-keyword {
+            color: #569cd6;
+        }
+
+        .code-string {
+            color: #ce9178;
+        }
+
+        .code-number {
+            color: #b5cea8;
+        }
+
+        .features-list {
+            color: #d4d4d4;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #454545;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #252526;
+            color: #4ec9b0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB Logo">
+        <h1>MongoDB vs PostgreSQL</h1>
+        <img src="https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg" alt="PostgreSQL Logo">
+    </div>
+    <div class="container">
+        <div class="section">
+            <h2>MongoDB - Insert</h2>
+            <div class="code-block">
+                <pre>
+db.collection('users').insertOne({
+    name: <span class="code-string">"John Doe"</span>,
+    email: <span class="code-string">"john.doe@example.com"</span>,
+    age: <span class="code-number">30</span>
+});
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>PostgreSQL - Insert</h2>
+            <div class="code-block">
+                <pre>
+INSERT INTO users (name, email, age) 
+VALUES (<span class="code-string">'John Doe'</span>, <span class="code-string">'john.doe@example.com'</span>, <span class="code-number">30</span>);
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>MongoDB - Update</h2>
+            <div class="code-block">
+                <pre>
+db.collection('users').updateOne(
+    { email: <span class="code-string">"john.doe@example.com"</span> },
+    { $set: { age: <span class="code-number">31</span> } }
+);
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>PostgreSQL - Update</h2>
+            <div class="code-block">
+                <pre>
+UPDATE users 
+SET age = <span class="code-number">31</span> 
+WHERE email = <span class="code-string">'john.doe@example.com'</span>;
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>MongoDB - Delete</h2>
+            <div class="code-block">
+                <pre>
+db.collection('users').deleteOne({ email: <span class="code-string">"john.doe@example.com"</span> });
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>PostgreSQL - Delete</h2>
+            <div class="code-block">
+                <pre>
+DELETE FROM users 
+WHERE email = <span class="code-string">'john.doe@example.com'</span>;
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>MongoDB - Create Collection</h2>
+            <div class="code-block">
+                <pre>
+db.createCollection(<span class="code-string">"users"</span>);
+db.collection('users').createIndex({ email: <span class="code-number">1</span> }, { unique: true });
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>PostgreSQL - Create Table</h2>
+            <div class="code-block">
+                <pre>
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    age INT
+);
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>MongoDB - Find by ID</h2>
+            <div class="code-block">
+                <pre>
+db.collection('users').findOne({ 
+    _id: ObjectId(<span class="code-string">'5f64cc9c9b3f6b3e38b41f31'</span>)
+});
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>PostgreSQL - Find by ID</h2>
+            <div class="code-block">
+                <pre>
+SELECT * FROM users 
+WHERE id = <span class="code-number">123</span>;
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>MongoDB - Function</h2>
+            <div class="code-block">
+                <pre>
+db.system.js.save({
+    _id: "addNumbers",
+    value: function(x, y) {
+        return x + y;
+    }
+});
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>PostgreSQL - Function</h2>
+            <div class="code-block">
+                <pre>
+CREATE FUNCTION add_numbers(x INT, y INT) 
+RETURNS INT AS $$
+BEGIN
+    RETURN x + y;
+END;
+$$ LANGUAGE plpgsql;
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>MongoDB - Stored Procedure</h2>
+            <div class="code-block">
+                <pre>
+In MongoDB, there are no stored procedures in the traditional sense found in more traditional relational databases. Instead, MongoDB offers features like Change Streams for real-time change monitoring and the ability to store JavaScript functions in the `system.js` collection for execution within MongoDB using Node.js.
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>PostgreSQL - Stored Procedure</h2>
+            <div class="code-block">
+                <pre>
+CREATE OR REPLACE FUNCTION log_message(message TEXT) 
+RETURNS VOID AS $$
+BEGIN
+    INSERT INTO log (message, timestamp) 
+    VALUES (message, CURRENT_TIMESTAMP);
+END;
+$$ LANGUAGE plpgsql;
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>MongoDB - Trigger</h2>
+            <div class="code-block">
+                <pre>
+In MongoDB, there are no triggers that focus on automatic actions in response to database changes,as found in more traditional relational databases. Instead, MongoDB offers options like Change Streams for real-time change monitoring and additional capabilities such as MongoDB Realm for defining additional functionalities and triggers.
+                </pre>
+            </div>
+        </div>
+        <div class="section">
+            <h2>PostgreSQL - Trigger</h2>
+            <div class="code-block">
+                <pre>
+CREATE OR REPLACE FUNCTION enforce_email_uniqueness() 
+RETURNS TRIGGER AS $$
+BEGIN
+    IF EXISTS (SELECT 1 FROM users WHERE email = NEW.email AND id != NEW.id) THEN
+        RAISE EXCEPTION 'Email address must be unique.';
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER email_uniqueness_trigger 
+BEFORE INSERT OR UPDATE ON users 
+FOR EACH ROW EXECUTE FUNCTION enforce_email_uniqueness();
+                </pre>
+            </div>
+        </div>
+   
+        <div class="section">
+            <h2>Feature Comparison</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>MongoDB</th>
+                        <th>PostgreSQL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Stored Procedures</td>
+                        <td>No native support</td>
+                        <td>Supported</td>
+                    </tr>
+                    <tr>
+                        <td>Triggers</td>
+                        <td>No native support</td>
+                        <td>Supported</td>
+                    </tr>
+                    <tr>
+                        <td>JSON-like Documents</td>
+                        <td>Yes</td>
+                        <td>No (Structured)</td>
+                    </tr>
+                    <tr>
+                        <td>Auto-sharding</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Replication</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
